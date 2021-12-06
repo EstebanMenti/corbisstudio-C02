@@ -1,11 +1,29 @@
-# Exercice 01
-Ejercicio de clase nº2 (2021-12-02). Se pide:
+Ejercicio 01
 
-El ejercicio de este tema va a consistir en subir los ejercicios del tema de docker (el Ejercicio 01 y el 02) a github. Tendran que cumplir con lo siguiente.
+En este ejercicio solamente vamos a crear un contenedor docker con el tag `exericie01:go-web` basado en la imagen `golang:1.14` para correr nuestro servicio web creado en go en el archivo `main.go`.
 
-Condiciones:
+A diferencia de python para go vamos a necesitar los siguientes comando como pasos previos antes de ejecutar el comando que deja corriendo nustros servidor
 
-Crearce una cuenta en Github (en caso de tener usar la actual).
-Crear un proyecto (repositorio) para el proyecto y agregar mi usuario (ElDwarf) como colaborador.
-Crear un branch para cada ejercicio.
-Crear un PR para cada rama con destino master y agregarme como revisor.
+1. Situado en la carpeta de nuestro codigo `main.go` vamos a instalar las dependencias necerias con el siguiente comando.
+
+```sh
+go get -d -v ./...
+```
+2. Vamos a instalar nuestro proyecto como app ejecutable.
+
+```sh
+go install -v ./...
+```
+
+3. Ejecutar nuestro servidor.
+```sh
+app
+```
+
+## Correr el contendor
+
+```sh
+docker run -p 5000:5000 exericie01:go-web
+```
+
+Luego ingresar en su browser a `http://localhost:5000/`
